@@ -1,0 +1,22 @@
+{
+  "name": "test-pool-arbitrage",
+  "version": "1.0.0",
+  "description": "A TypeScript script for Test Pool Arbitrage, inspecting Uniswap V4 pool prices and comparing them with CoinGecko market data.",
+  "main": "dist/arbitrage.js",
+  "scripts": {
+    "start": "node dist/arbitrage.js",
+    "build": "npx tsc",
+    "dev": "npx ts-node arbitrage.ts"
+  },
+  "keywords": ["uniswap", "v4", "arbitrage", "typescript", "defi"],
+  "author": "Your Name/Organization",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node-fetch": "^2.6.11",
+    "ethers": "^6.13.1",
+    "node-fetch": "^3.3.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.3"
+  },
+  "type": "module"
+} 
