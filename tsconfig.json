@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "target": "es2020",
-    "module": "es2020",
+    "module": "commonjs",
     "lib": ["es2020", "dom"],
     "strict": true,
     "esModuleInterop": true,
@@ -10,5 +10,5 @@
     "moduleResolution": "node",
     "outDir": "./dist"
   },
-  "include": ["./arbitrage.ts"]
+  "include": ["./arbitrage.ts", "./directSwapBot.ts", "./trackVolume.ts"]
 } 

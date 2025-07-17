@@ -85,7 +85,7 @@ function sqrtPriceX96FromPrice(price: number, decimals0: number, decimals1: numb
 }
 
 async function main() {
-  const provider = new ethers.JsonRpcProvider(RPC_URL);
+  const provider = new ethers.providers.JsonRpcProvider(RPC_URL);
   const stateView = new ethers.Contract(STATE_VIEW_ADDRESS, STATE_VIEW_ABI, provider);
   const prices = await getPrices();
   console.log(`Market: BTC=$${prices.btc} | ETH=$${prices.eth} | USDC=$${prices.usdc} | USDT=$${prices.usdt}`);
@@ -106,8 +106,9 @@ async function main() {
     if (marketSqrtX96 === BigInt(0)) {
         deviation = 'NaN';
     } else {
-        const diff = poolSqrtX96 - marketSqrtX96;
-        deviation = ((Number(diff) / Number(marketSqrtX96)) * 100).toFixed(1);
+        // Perform all arithmetic operations using Number after converting BigInts
+        const diff = Number(poolSqrtX96) - Number(marketSqrtX96);
+        deviation = ((diff / Number(marketSqrtX96)) * 100).toFixed(1);
     }
     
     console.log(`${name}: Pool_sqrtX96 ${poolSqrtX96} | Market_sqrtX96 ${marketSqrtX96} | Dev ${deviation}%`);
